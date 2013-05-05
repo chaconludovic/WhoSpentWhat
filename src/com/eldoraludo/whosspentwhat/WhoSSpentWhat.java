@@ -1,15 +1,25 @@
 package com.eldoraludo.whosspentwhat;
 
-import android.app.Activity;
-import android.os.Bundle;
+import org.apache.cordova.Config;
+import org.apache.cordova.DroidGap;
 
-public class WhoSSpentWhat extends Activity
-{
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+import android.os.Bundle;
+import android.view.Menu;
+
+public class WhoSSpentWhat extends DroidGap {
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// Set by <content src="index.html" /> in config.xml
+		super.loadUrl(Config.getStartUrl());
+		// super.loadUrl("file:///android_asset/www/index.html")
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.layout.main, menu);
+		return true;
+	}
+
 }
